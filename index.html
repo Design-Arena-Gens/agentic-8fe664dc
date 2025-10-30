@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IdeaPulse – AI Newsletter &amp; Blog Agent</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="header-content">
+        <h1>IdeaPulse</h1>
+        <p>Shape high-impact newsletters and blogs on the latest topics.</p>
+      </div>
+      <div class="header-actions">
+        <button id="clearFieldsBtn" class="ghost-btn">Clear</button>
+        <button id="generateBtn" class="primary-btn">Generate Draft</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-input">
+        <h2>Creative Brief</h2>
+        <form id="briefForm" class="form-grid">
+          <label class="form-field">
+            <span>Primary Topic</span>
+            <input
+              id="topicInput"
+              type="text"
+              placeholder="e.g. Generative AI for marketing teams"
+              required
+            />
+          </label>
+
+          <label class="form-field">
+            <span>Key Updates / Links</span>
+            <textarea
+              id="updatesInput"
+              placeholder="Paste bullet points, URLs, or fresh announcements"
+              rows="3"
+            ></textarea>
+          </label>
+
+          <label class="form-field">
+            <span>Audience Focus</span>
+            <input
+              id="audienceInput"
+              type="text"
+              placeholder="e.g. SaaS founders, enterprise marketers"
+            />
+          </label>
+
+          <label class="form-field">
+            <span>Product / Brand Angle</span>
+            <input
+              id="brandInput"
+              type="text"
+              placeholder="Optional: highlight a product or offer"
+            />
+          </label>
+
+          <div class="form-field form-inline">
+            <label>
+              <span>Format</span>
+              <select id="formatSelect">
+                <option value="newsletter">Newsletter</option>
+                <option value="blog">Blog Article</option>
+                <option value="thought-leadership">Thought Leadership</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Tone</span>
+              <select id="toneSelect">
+                <option value="upbeat">Upbeat</option>
+                <option value="analytical">Analytical</option>
+                <option value="authoritative">Authoritative</option>
+                <option value="conversational">Conversational</option>
+                <option value="playful">Playful</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-field form-inline">
+            <label>
+              <span>Depth</span>
+              <input
+                id="depthRange"
+                type="range"
+                min="1"
+                max="5"
+                step="1"
+                value="3"
+              />
+            </label>
+            <div class="depth-labels">
+              <span>Quick</span>
+              <span>In-depth</span>
+            </div>
+          </div>
+
+          <label class="form-field">
+            <span>Must-Include Callouts</span>
+            <input
+              id="calloutsInput"
+              type="text"
+              placeholder="e.g. growth metrics, customer story, upcoming event"
+            />
+          </label>
+
+          <label class="form-field">
+            <span>Visual / CTA Ideas</span>
+            <input
+              id="ctaInput"
+              type="text"
+              placeholder="e.g. include demo signup, highlight report download"
+            />
+          </label>
+        </form>
+
+        <section class="insights">
+          <div class="insights-header">
+            <h3>Pulse Highlights</h3>
+            <button id="refreshPulseBtn" class="ghost-btn">Refresh</button>
+          </div>
+          <ul id="pulseList" class="insights-list"></ul>
+        </section>
+      </section>
+
+      <section class="panel panel-output">
+        <div class="output-toolbar">
+          <div class="tabs">
+            <button class="tab active" data-target="newsletter">Newsletter</button>
+            <button class="tab" data-target="blog">Blog Draft</button>
+            <button class="tab" data-target="social">Social Teasers</button>
+          </div>
+          <button id="copyAllBtn" class="ghost-btn">Copy All</button>
+        </div>
+
+        <div class="output-views">
+          <article id="newsletterView" class="output-view active"></article>
+          <article id="blogView" class="output-view"></article>
+          <article id="socialView" class="output-view"></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Built for strategic storytellers. IdeaPulse pairs trend intelligence with
+        polished drafts ready for review.
+      </p>
+    </footer>
+
+    <template id="pulseItemTemplate">
+      <li class="insight-item">
+        <div>
+          <p class="insight-title"></p>
+          <p class="insight-meta"></p>
+        </div>
+        <button class="mini-btn">Use</button>
+      </li>
+    </template>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
+
